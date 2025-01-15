@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const homeRoutes = require('./routes/homeRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +17,8 @@ app.set('views', './src/views');
 
 // Routes
 app.use('/', homeRoutes);
+// Use Payment Routes
+app.use('/payment', paymentRoutes);
 
 // Start Server
 app.listen(PORT, () => {
